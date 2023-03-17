@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/rockSpawner.gd" type="Script" id=1]
+
+[node name="rockSpawner" type="Node2D" groups=["spawner"]]
+script = ExtResource( 1 )
+
+[node name="timer" type="Timer" parent="."]
+autostart = true
+
+[node name="1" type="Position2D" parent="."]
+
+[node name="2" type="Position2D" parent="."]
+position = Vector2( 128, -128 )
+
+[node name="3" type="Position2D" parent="."]
+position = Vector2( 128, 128 )
+
+[node name="4" type="Position2D" parent="."]
+position = Vector2( -128, 128 )
+
+[node name="5" type="Position2D" parent="."]
+position = Vector2( -128, -128 )
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

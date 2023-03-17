@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/rock2.svg" type="Texture" id=1]
+[ext_resource path="res://src/rock.gd" type="Script" id=2]
+[ext_resource path="res://obj/fx/combatText/combatTextManager.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Curve" id=1]
+max_value = 5.0
+_data = [ Vector2( 0, 5 ), 0.0, 0.0, 0, 0, Vector2( 0.668605, 1.73864 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[node name="rock" type="RigidBody2D" groups=["body", "small"]]
+collision_layer = 7
+collision_mask = 7
+mass = 50.0
+gravity_scale = 0.0
+script = ExtResource( 2 )
+
+[node name="rockTexture" type="Sprite" parent="."]
+modulate = Color( 5, 5, 5, 1 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 1 )
+
+[node name="shape" type="CollisionPolygon2D" parent="."]
+scale = Vector2( 0.25, 0.25 )
+polygon = PoolVector2Array( 41, -234.9, 41, -233.7, 64, -229.7, 64, -228.5, 93, -219.5, 93, -218.3, 116, -208.3, 116, -207.1, 141, -192.1, 141, -190.9, 173, -163.9, 173, -161.7, 202, -126.7, 202, -124.5, 224, -82.5, 224, -79, 237, -33.3, 237, -25, 239, 26, 237.8, 26, 234.8, 55, 233.5, 55, 223.5, 93, 222.3, 93, 208.3, 125, 207.1, 125, 192.1, 150, 191, 150, 180, 165, 178.8, 165, 144.8, 198, 142.6, 198, 117.6, 216, 115.5, 216, 83.5, 232, 80.3, 232, 43.3, 243, 37.2, 243, 1.10001, 247, -1.10001, 247, -63, 238.8, -63, 237.5, -95, 227.5, -95, 226.3, -124, 212.3, -124, 211.1, -151, 193.1, -151, 191.9, -181, 163.9, -181, 161.7, -200, 138.7, -200, 136.5, -220, 101.5, -220, 98.4, -230, 73.4, -230, 69, -237, 42.3, -237, -35, -235.7, -35, -231.7, -59, -230.5, -59, -219.5, -94, -218.3, -94, -207.3, -118, -206.1, -118, -186.1, -149, -184.9, -149, -163.9, -173, -161.8, -173, -139.8, -193, -137.5, -193, -114.6, -209, -112.5, -209, -78.4, -225, -75.1, -225, -39.3, -235, -32.2, -235, -12, -236.8, -12, -238.1 )
+
+[node name="combatTextManager" parent="." instance=ExtResource( 3 )]
+
+[node name="trail" type="CPUParticles2D" parent="."]
+modulate = Color( 5, 5, 5, 1 )
+z_index = -1
+amount = 50
+randomness = 1.0
+lifetime_randomness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 40.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity_random = 1.0
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+radial_accel = 5.0
+radial_accel_random = 1.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 3.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 1 )

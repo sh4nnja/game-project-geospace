@@ -1,0 +1,341 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/cosmicTeleporterModule.svg" type="Texture" id=1]
+[ext_resource path="res://src/cosmicTeleporterModule.gd" type="Script" id=2]
+[ext_resource path="res://obj/font/spaceAge/space age.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/materialsIcon.svg" type="Texture" id=6]
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 577.997
+
+[sub_resource type="Curve" id=3]
+max_value = 5.0
+_data = [ Vector2( 0, 5 ), 0.0, 0.0, 0, 0, Vector2( 0.668605, 1.73864 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 25
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("stats/rareMaterialNeed:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("stats/rareMaterialNeed:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("stats/materialNeed:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("stats/materialNeed:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -48, -56 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("UILayer/ui/deposit:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("UILayer/ui/deposit:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "stats"
+tracks/0/type = "value"
+tracks/0/path = NodePath("stats/rareMaterialNeed:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.05, 0.05 ),
+"update": 0,
+"values": [ Vector2( 177, 117 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("stats/rareMaterialNeed:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.05, 0.05 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("stats/materialNeed:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 0.05, 0.05 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("stats/materialNeed:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 0.05, 0.05 ),
+"update": 0,
+"values": [ Vector2( 177, 117 ), Vector2( -48, -56 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("UILayer/ui/deposit:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1, 0.4, 1 ),
+"transitions": PoolRealArray( 0.05, 0.05, 0.05 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("UILayer/ui/deposit:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="cosmicTeleporterModule" type="RigidBody2D" groups=["teleporter"]]
+collision_layer = 6
+collision_mask = 6
+mass = 1000.0
+script = ExtResource( 2 )
+
+[node name="sprite" type="Sprite" parent="."]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+texture = ExtResource( 1 )
+
+[node name="collision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -20.5, -106, 25.6, -106, 200, -184.1, 200, -178.7, 155, -27.7, 155, 21, 239.4, 176, 233.8, 176, 50.6, 140, -76.6, 140, -238, 170.4, -238, 166.5, -146, 1.5, -146, -3, -193, -183.7, -193, -190.2 )
+
+[node name="detection" type="Area2D" parent="."]
+
+[node name="shape" type="CollisionShape2D" parent="detection"]
+shape = SubResource( 6 )
+
+[node name="trail" type="CPUParticles2D" parent="."]
+modulate = Color( 1, 5, 5, 1 )
+scale = Vector2( 7, 7 )
+z_index = -1
+amount = 250
+lifetime = 5.0
+randomness = 1.0
+lifetime_randomness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 50.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 15.0
+initial_velocity_random = 1.0
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 5.0
+radial_accel_random = 1.0
+tangential_accel = 100.0
+tangential_accel_random = 1.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 3.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 3 )
+
+[node name="stats" type="Control" parent="."]
+margin_left = -530.0
+margin_top = -350.0
+margin_right = -490.0
+margin_bottom = -310.0
+rect_scale = Vector2( 3, 3 )
+
+[node name="materialNeed" type="TextureRect" parent="stats"]
+self_modulate = Color( 0, 1, 0, 0.294118 )
+anchor_top = 0.947
+anchor_bottom = 0.947
+margin_left = 176.999
+margin_top = 79.1189
+margin_right = 224.999
+margin_bottom = 127.126
+rect_scale = Vector2( 1.6126e-05, 1.6126e-05 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="need" type="Label" parent="stats/materialNeed"]
+self_modulate = Color( 0, 1, 0, 1 )
+anchor_left = 0.333
+anchor_top = 0.656
+anchor_right = 0.333
+anchor_bottom = 0.656
+margin_left = 0.0159998
+margin_top = -23.488
+margin_right = 129.016
+margin_bottom = 23.512
+custom_fonts/font = SubResource( 1 )
+text = "000"
+
+[node name="label" type="Label" parent="stats/materialNeed"]
+self_modulate = Color( 0, 1, 0, 1 )
+anchor_left = 0.167
+anchor_top = 0.167
+anchor_right = 0.167
+anchor_bottom = 0.167
+margin_left = -0.0160007
+margin_top = -8.016
+margin_right = 137.984
+margin_bottom = 7.984
+rect_pivot_offset = Vector2( 64.5, 32 )
+custom_fonts/font = SubResource( 2 )
+text = "MATERIAL NEEDED"
+
+[node name="rareMaterialNeed" type="TextureRect" parent="stats"]
+self_modulate = Color( 0.501961, 0, 1, 0.294118 )
+anchor_top = 0.947
+anchor_bottom = 0.947
+margin_left = 177.0
+margin_top = 79.12
+margin_right = 225.0
+margin_bottom = 127.12
+rect_scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="need" type="Label" parent="stats/rareMaterialNeed"]
+self_modulate = Color( 0.501961, 0, 1, 1 )
+anchor_left = 0.333
+anchor_top = 0.656
+anchor_right = 0.333
+anchor_bottom = 0.656
+margin_left = 0.0159998
+margin_top = -23.488
+margin_right = 129.016
+margin_bottom = 23.512
+custom_fonts/font = SubResource( 1 )
+text = "000"
+
+[node name="label" type="Label" parent="stats/rareMaterialNeed"]
+self_modulate = Color( 0.501961, 0, 1, 1 )
+anchor_left = 0.167
+anchor_top = 0.167
+anchor_right = 0.167
+anchor_bottom = 0.167
+margin_left = -0.0160007
+margin_top = -8.016
+margin_right = 161.984
+margin_bottom = 7.984
+rect_pivot_offset = Vector2( 64.5, 32 )
+custom_fonts/font = SubResource( 2 )
+text = "RARE MATERIAL NEEDED"
+
+[node name="tween" type="Tween" parent="stats"]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="ui" type="Control" parent="UILayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="deposit" type="Label" parent="UILayer/ui"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -265.0
+margin_top = -100.0
+margin_right = 265.0
+margin_bottom = -76.0
+rect_scale = Vector2( 1e-05, 2.83778e-05 )
+rect_pivot_offset = Vector2( 265, 0 )
+custom_fonts/font = SubResource( 7 )
+text = "press Q to deposit materials"
+align = 1
+
+[node name="player" type="AnimationPlayer" parent="."]
+reset_on_save = false
+playback_process_mode = 0
+anims/RESET = SubResource( 4 )
+anims/stats = SubResource( 5 )
+
+[connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="detection" to="." method="_on_detection_body_exited"]

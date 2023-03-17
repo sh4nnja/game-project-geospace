@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/bigRock.gd" type="Script" id=1]
+[ext_resource path="res://assets/rock4.svg" type="Texture" id=2]
+[ext_resource path="res://obj/fx/combatText/combatTextManager.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Curve" id=1]
+max_value = 5.0
+_data = [ Vector2( 0, 5 ), 0.0, 0.0, 0, 0, Vector2( 0.668605, 1.73864 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[node name="bigRock4" type="RigidBody2D" groups=["big", "body", "hex"]]
+collision_layer = 7
+collision_mask = 7
+mass = 150.0
+gravity_scale = 0.0
+script = ExtResource( 1 )
+
+[node name="rockTexture" type="Sprite" parent="."]
+modulate = Color( 5, 5, 5, 1 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="shape" type="CollisionPolygon2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( 4, -248.1, 209, -124.1, 209, 126, 206.5, 126, 4.60001, 249, 2.10001, 249, -4, 250.6, -4, 248.1, -209, 125.1, -209, -124.1, -4, -248.1, -4, -250, 4, -250 )
+
+[node name="spawn1" type="Position2D" parent="."]
+position = Vector2( 0, -120 )
+
+[node name="spawn2" type="Position2D" parent="."]
+position = Vector2( 120, 0 )
+
+[node name="spawn3" type="Position2D" parent="."]
+position = Vector2( 0, 120 )
+
+[node name="spawn4" type="Position2D" parent="."]
+position = Vector2( -120, 0 )
+
+[node name="spawn5" type="Position2D" parent="."]
+
+[node name="combatTextManager" parent="." instance=ExtResource( 3 )]
+
+[node name="trail" type="CPUParticles2D" parent="."]
+modulate = Color( 5, 5, 5, 1 )
+z_index = -1
+amount = 50
+randomness = 1.0
+lifetime_randomness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 80.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity_random = 1.0
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+radial_accel = 5.0
+radial_accel_random = 1.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 3.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 1 )

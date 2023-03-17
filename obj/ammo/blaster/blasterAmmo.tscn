@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/blasterAmmo.gd" type="Script" id=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.166667, 0.827273 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[node name="blasterAmmo" type="KinematicBody2D" groups=["bullet"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 2 )
+
+[node name="trails" type="Line2D" parent="."]
+modulate = Color( 5, 5, 5, 1 )
+self_modulate = Color( 1, 1, 1, 0.784314 )
+position = Vector2( 72, 0 )
+z_index = -1
+width = 5.0
+width_curve = SubResource( 1 )
+
+[node name="shape" type="CollisionPolygon2D" parent="."]
+scale = Vector2( 0.1, 0.1 )
+polygon = PoolVector2Array( 74, 14, -74, 14, -74, -14, 74, -14 )
+
+[node name="selfDestruct" type="Timer" parent="."]
+autostart = true
+
+[node name="fxPoint" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 75, 0 )
+collision_mask = 2
+
+[connection signal="timeout" from="selfDestruct" to="." method="_on_selfDestruct_timeout"]
