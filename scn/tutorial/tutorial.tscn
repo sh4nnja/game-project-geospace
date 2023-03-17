@@ -1,0 +1,153 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/ship.svg" type="Texture" id=1]
+[ext_resource path="res://obj/font/spaceAge/space age.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/rock4.svg" type="Texture" id=3]
+[ext_resource path="res://assets/cosmicTeleporterModule.svg" type="Texture" id=4]
+[ext_resource path="res://game.tres" type="Environment" id=5]
+[ext_resource path="res://scn/transition/transition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/tutorial.gd" type="Script" id=7]
+[ext_resource path="res://scn/settings/settings.tscn" type="PackedScene" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[node name="tutorial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+
+[node name="env" type="WorldEnvironment" parent="."]
+environment = ExtResource( 5 )
+
+[node name="movement" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ship" type="Sprite" parent="movement"]
+modulate = Color( 2, 2, 2, 1 )
+position = Vector2( 176, 112 )
+rotation = 0.523598
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 1 )
+
+[node name="tip" type="Label" parent="movement"]
+margin_left = 264.0
+margin_top = 80.0
+margin_right = 856.0
+margin_bottom = 168.0
+custom_fonts/font = SubResource( 1 )
+text = "TO MOVE THE SHIP FORWARD PRESS W, IF YOU WANT TO GO BACKWARD PRESS S. ITs rotation FOLLOWS YOUR MOUSE."
+autowrap = true
+
+[node name="W" type="Label" parent="movement"]
+modulate = Color( 2, 2, 2, 1 )
+margin_left = 264.0
+margin_top = 107.0
+margin_right = 296.0
+margin_bottom = 131.0
+custom_colors/font_color = Color( 0, 1, 0.231373, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "W"
+autowrap = true
+
+[node name="S" type="Label" parent="movement"]
+modulate = Color( 2, 2, 2, 1 )
+margin_left = 385.0
+margin_top = 134.0
+margin_right = 417.0
+margin_bottom = 158.0
+custom_colors/font_color = Color( 0.615686, 0, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "S"
+autowrap = true
+
+[node name="firing" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="rock" type="Sprite" parent="firing"]
+modulate = Color( 2, 2, 2, 1 )
+self_modulate = Color( 1, 0.866667, 0, 1 )
+position = Vector2( 808, 304 )
+rotation = 0.752237
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 3 )
+
+[node name="tip" type="Label" parent="firing"]
+margin_left = 109.0
+margin_top = 256.0
+margin_right = 701.0
+margin_bottom = 361.0
+custom_fonts/font = SubResource( 1 )
+text = "TO FIRE, PRESS LMB FOR BLASTERS AND RMB FOR MISSILES, DESTROY ROCKS AND STARS TO GET MATERIALS. "
+align = 2
+autowrap = true
+
+[node name="LMB" type="Label" parent="firing"]
+modulate = Color( 2, 2, 2, 1 )
+margin_left = 556.0
+margin_top = 256.0
+margin_right = 628.0
+margin_bottom = 280.0
+custom_colors/font_color = Color( 0, 1, 0.647059, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "LMB"
+autowrap = true
+
+[node name="RMB" type="Label" parent="firing"]
+modulate = Color( 2, 2, 2, 1 )
+margin_left = 395.0
+margin_top = 283.0
+margin_right = 467.0
+margin_bottom = 307.0
+custom_colors/font_color = Color( 1, 0.678431, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "RMB"
+autowrap = true
+
+[node name="done" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="cosmic" type="Sprite" parent="done"]
+modulate = Color( 2, 2, 2, 1 )
+self_modulate = Color( 0, 1, 0.788235, 1 )
+position = Vector2( 160, 472 )
+rotation = 0.429351
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 4 )
+
+[node name="tip" type="Label" parent="done"]
+margin_left = 264.0
+margin_top = 424.0
+margin_right = 856.0
+margin_bottom = 529.0
+custom_fonts/font = SubResource( 1 )
+text = "THE MATERIALS COLLECTED WILL BE USED TO REPAIR THE PORTAL, THE PORTAL WILL HAVE THREE PHASES, IF COMPLETED, YOU WIN."
+autowrap = true
+
+[node name="tutorialDone" type="Button" parent="."]
+margin_left = 808.0
+margin_top = 544.0
+margin_right = 1022.0
+margin_bottom = 598.0
+custom_colors/font_color_hover = Color( 1, 0.772549, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+text = "done"
+flat = true
+
+[node name="transition" parent="." instance=ExtResource( 6 )]
+
+[node name="settings" parent="." instance=ExtResource( 8 )]
+
+[connection signal="pressed" from="tutorialDone" to="." method="_on_tutorialDone_pressed"]
